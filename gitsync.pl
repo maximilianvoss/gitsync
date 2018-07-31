@@ -6,7 +6,7 @@
 # [id which is used for directory]: [src repo] -> [dest repo]
 #
 # Example:
-# gitsync: git@git.voss.rocks:Utilities/gitsync.git -> git@github.com:maximilianvoss/gitsync.git
+# BeatTheWeight: git@git.voss.rocks:apps/BeatTheWeight.git -> git@github.com:maximilianvoss/BeatTheWeight.git
 
 use strict;
 
@@ -30,7 +30,7 @@ while ( my $line = <CONFIG> ) {
 			print `$cmd`;
 		}
 
-		my $cmd = "(cd $id; git fetch --all; git push dest --all)";
+		my $cmd = "(cd $id; git fetch --all; git pull origin; git push dest --all; git push dest --tags)";
 		print 'Syncing the repositories: ' . $cmd . "\n";
 		print `$cmd`;
 	}

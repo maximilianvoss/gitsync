@@ -6,7 +6,7 @@
 # [id which is used for directory]: [src repo] -> [dest repo]
 #
 # Example:
-# Gitsync: git@git.voss.rocks:Utilities/gitsync.git -> git@github.com:maximilianvoss/gitsync.git
+# gitsync: git@git.voss.rocks:Utilities/gitsync.git -> git@github.com:maximilianvoss/gitsync.git
 
 use strict;
 

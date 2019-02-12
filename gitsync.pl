@@ -38,7 +38,7 @@ while ( my $line = <CONFIG> ) {
 			if ( $result[$i] =~ /^\s*remotes\/origin\/(.+)/ && $result[$i] !~ /->/ ) {
 				my $branch = $1;
 
-				my $cmd = "(cd $id; git checkout $branch; git pull -all; git push dest --all; git push dest --tags)";
+				my $cmd = "(cd $id; git checkout $branch; git pull --all; git push dest --all; git push dest --tags)";
 				print 'Syncing the repositories: ' . $cmd . "\n";
 				print `$cmd`;
 			}

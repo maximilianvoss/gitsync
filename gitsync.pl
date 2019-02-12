@@ -30,7 +30,7 @@ while ( my $line = <CONFIG> ) {
 			print `$cmd`;
 		}
 
-		my $cmd = "cd $id; git fetch --all; git branch -a";
+		my $cmd = "cd $id; git fetch --all -p; git branch -a";
 		print 'Finding all remote branches: ' . $cmd . "\n";
 		my @result = `$cmd`;
 
@@ -38,7 +38,7 @@ while ( my $line = <CONFIG> ) {
 			if ( $result[$i] =~ /^\s*remotes\/origin\/(.+)/ && $result[$i] !~ /->/ ) {
 				my $branch = $1;
 
-				my $cmd = "(cd $id; git checkout $branch; git pull origin $branch; git push dest --all; git push dest --tags)";
+				my $cmd = "(cd $id; git checkout $branch; git pull --all; git pull origin $branch; git push dest --all; git push dest --tags)";
 				print 'Syncing the repositories: ' . $cmd . "\n";
 				print `$cmd`;
 			}
